@@ -30,7 +30,6 @@ export default {
       "https://www.easy-mock.com/mock/5ef853266fdc8a0a935e1e38/example/";
     axios.get(url).then(() => {});
 
-
   }
 };
 </script>>
