@@ -10,8 +10,7 @@
 
 <script>
 import HelloWorld from "@/components/HelloWorld";
-// import axios from "axios";
-import jsonp from "jsonp";
+import axios from "axios";
 
 export default {
   name: "app",
@@ -27,17 +26,8 @@ export default {
 
   mounted() {
     // axios发送get请求
-    // let url =
-    //   "https://www.imooc.com/course/list";
-    // axios.get(url).then(() => {});
-
-    // jsonp发送请求  它属于js
-    let url = "https://www.imooc.com/course/list/";
-    jsonp(url, (err, res) => {
-      let result = res;
-      this.data = result;
-      console.log("tag", result);
-    });
+    let url = "https://www.imooc.com/course/list";
+    axios.get(url).then(() => {});
   },
 };
 </script>
