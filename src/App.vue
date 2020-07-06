@@ -10,7 +10,7 @@
 
 <script>
 import HelloWorld from "@/components/HelloWorld";
-import axios from "axios";
+import jsonp from "jsonp";
 
 export default {
   name: "app",
@@ -24,10 +24,13 @@ export default {
     };
   },
   mounted() {
-    // axios发送get请求
-    let url =
-      "https://www.easy-mock.com/mock/5ef853266fdc8a0a935e1e38/example/";
-    axios.get(url).then(() => {});
+    // jsonp发送请求  它属于js
+    let url = "https://www.imooc.com/course/list/";
+    jsonp(url, (err, res) => {
+      let result = res;
+      this.data = result;
+      console.log("tag", result);
+    });
   },
 };
 </script>
