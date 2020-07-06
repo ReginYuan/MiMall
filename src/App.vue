@@ -8,7 +8,6 @@
   </div>
 </template>
 
-
 <script>
 import HelloWorld from "@/components/HelloWorld";
 import axios from "axios";
@@ -17,11 +16,11 @@ export default {
   name: "app",
   components: {
     // eslint-disable-next-line vue/no-unused-components
-    HelloWorld
+    HelloWorld,
   },
   data() {
     return {
-      age: 30
+      age: 30,
     };
   },
   mounted() {
@@ -29,10 +28,10 @@ export default {
     let url =
       "https://www.easy-mock.com/mock/5ef853266fdc8a0a935e1e38/example/";
     axios.get(url).then(() => {});
-
-  }
+  },
 };
-</script>>
+</script>
+>
 
 <style>
 #app {
