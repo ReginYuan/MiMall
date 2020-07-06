@@ -24,6 +24,7 @@ export default {
       age: 30
     };
   },
+  
   mounted() {
     // axios发送get请求
     let url =
