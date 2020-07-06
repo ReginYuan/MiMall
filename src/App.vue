@@ -36,7 +36,6 @@ export default {
     jsonp(url, (err, res) => {
       let result = res;
       this.data = result;
-      console.log("tag", result);
     });
   },
 };
