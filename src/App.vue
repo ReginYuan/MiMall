@@ -1,12 +1,39 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+
+<script>
+import HelloWorld from "@/components/HelloWorld";
+import axios from "axios";
+
+export default {
+  name: "app",
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    HelloWorld
+  },
+  data() {
+    return {
+      age: 30
+    };
+  },
+  mounted() {
+    // axios发送get请求
+    let url =
+      "https://www.easy-mock.com/mock/5ef853266fdc8a0a935e1e38/example/";
+    axios.get(url).then(() => {});
+
+
+  }
+};
+</script>>
 
 <style>
 #app {
