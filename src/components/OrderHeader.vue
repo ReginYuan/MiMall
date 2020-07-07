@@ -1,11 +1,12 @@
+// 订单的头部组件
 <template>
   <div>
-    order-confirm
+    order-header
   </div>
 </template>
 
 <script>
 export default {
-  name: "order-confirm",
+  name: "order-header",
 };
 </script>
