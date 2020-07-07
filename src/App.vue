@@ -32,7 +32,7 @@ export default {
     // axios.get(url).then(() => {});
 
     // jsonp发送请求  它属于js
-    let url = "/api/course/list/";
+    let url = "/api/course/list";
     jsonp(url, (err, res) => {
       let result = res;
       this.data = result;
