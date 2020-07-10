@@ -13,6 +13,7 @@ switch (process.env.NODE_ENV) {
         baseURL = "http://prod-mall-pre.springboot.cn/api";
         break;
     case "prev":
+        // 如果要将名字设置为prev 则需要新建.env.prev文件
         baseURL = "http://prev-mall-pre.springboot.cn/api";
         break;
     default:
@@ -20,5 +21,5 @@ switch (process.env.NODE_ENV) {
         break;
 }
 export default {
-    baseURL,
+    baseURL
 };
