@@ -20,5 +20,5 @@ switch (process.env.NODE_ENV) {
         break;
 }
 export default {
-    baseURL,
+    baseURL
 };
