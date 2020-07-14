@@ -22,7 +22,7 @@ export default {
     //   this.res = res;
     // });
 
-    // 通过easy-mock平台
+    // 通过easy-mock平台  建议使用其他接口，因为服务器不容易加载
     this.axios.get("/mock/user/login.json").then(res => {
       this.res = res;
     });
