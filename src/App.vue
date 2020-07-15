@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      res: {}
+      res: {},
     };
   },
 
@@ -23,10 +23,15 @@ export default {
     // });
 
     // 通过easy-mock平台
-    this.axios.get("/mock/user/login.json").then(res => {
+    // this.axios.get("/user/login").then(res => {
+    //   this.res = res;
+    // });
+
+    //本地集成mockjs实现数据mock
+    this.axios.get("/user/login").then((res) => {
       this.res = res;
     });
-  }
+  },
 };
 </script>
 >
