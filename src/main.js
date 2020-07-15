@@ -13,7 +13,7 @@ import store from './store';
 
 
 // 接口代理 根据前端的跨域方式做调整  通过easy-mock平台需要调整baseURL
-axios.default.baseURL = 'https://www.easy-mock.com/mock/5ef853266fdc8a0a935e1e38/example';
+// axios.default.baseURL = 'https://www.easy-mock.com/mock/5ef853266fdc8a0a935e1e38/example';
 
 // 本地集成mockjs实现数据mock
 // mock开关
