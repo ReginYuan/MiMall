@@ -1,0 +1,18 @@
+/*flex布局复用*/
+
+@mixin flex($hov:space-between, $col:center) {
+    display: flex;
+    // 两端对齐
+    justify-content: $hov;
+    // 元素位于容器的中心。
+    align-items: $col;
+}
+
+@mixin bgImg($w:0, $h:0, $img:'', $size:contain) {
+    display: inline-block;
+    width: $w;
+    height: $h;
+    background: url($img) no-repeat center;
+    // 让图片充满所在容器的宽和高
+    background-size: $size;
+}
