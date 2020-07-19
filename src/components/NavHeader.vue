@@ -40,19 +40,6 @@
                     <div class="pro-price">{{item.price|currency}}</div>
                   </a>
                 </li>
-
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img
-                        src="https://res.vmallres.com/pimages//product/6901443381517/78_78_0410C56E4DFF825A527CBD3369F4D394F1699311CF51F864mp.png"
-                        alt
-                      />
-                    </div>
-                    <div class="pro-name">查看全部</div>
-                    <div class="pro-price">查看全部</div>
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -241,7 +228,7 @@ export default {
   name: "nav-header",
   data() {
     return {
-      username: "",
+      username: "jack",
       phoneList: []
     };
   },
@@ -260,7 +247,7 @@ export default {
     login() {
       this.$router.push("/login");
     },
-    // 获取手机信息
+    // 手机信息页面
     getProductList() {
       this.axios
         .get("/products", {
@@ -270,9 +257,7 @@ export default {
           }
         })
         .then(res => {
-          if (res.list.length > 6) {
-            this.phoneList = res.list.slice(0, 6);
-          }
+          this.phoneList = res.list;
         });
     },
     // 跳转到购物车页面
@@ -304,7 +289,7 @@ export default {
       }
       .my-cart {
         width: 110px;
-        background-color: #ff6600;
+        background-color: #d81e06;
         text-align: center;
         color: #ffffff;
         .icon-cart {
@@ -326,7 +311,7 @@ export default {
         display: inline-block;
         width: 55px;
         height: 55px;
-        background-color: #ff6600;
+        background-color: #d81e06;
         a {
           display: inline-block;
           width: 110px;
@@ -381,6 +366,7 @@ export default {
             box-shadow: 0px 7px 6px rgba(0, 0, 0, 0.11);
             z-index: 10;
             transition: all 0.5s;
+            background-color: #ffffff;
             .product {
               position: relative;
               float: left;
