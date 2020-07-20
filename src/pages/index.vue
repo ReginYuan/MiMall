@@ -2,7 +2,49 @@
   <div class="index">
     <div class="container">
       <div class="swiper-box">
+        <!-- 菜单 -->
+        <div class="nav-menu">
+          <ul class="menu-warp">
+            <li class="menu-item">
+              <a href="javascript:;">手机</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">笔记本</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">平板</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">智能穿戴</a>
+              <div class="children"></div>
+            </li>
+
+            <li class="menu-item">
+              <a href="javascript:;">智慧屏</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">耳机音响</a>
+              <div class="children"></div>
+            </li>
+
+            <li class="menu-item">
+              <a href="javascript:;">配件</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">增值服务</a>
+              <div class="children"></div>
+            </li>
+          </ul>
+        </div>
+        <!-- 轮播图 -->
+        <!-- 控制轮播图 -->
         <swiper v-bind:options="swiperOption">
+          <!-- 遍历图片 -->
           <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">
             <a v-bind:href="'/#/product/' + item.id"
               ><img v-bind:src="item.img"
@@ -18,6 +60,7 @@
       <div class="banner"></div>
     </div>
     <div class="product-box"></div>
+    <!-- 服务模块 -->
     <service-bar></service-bar>
   </div>
 </template>
@@ -89,8 +132,47 @@ export default {
 @import "./../assets/scss/mixin.scss";
 .index {
   .swiper-box {
+    /*定义菜单格式 */
+    .nav-menu {
+      position: absolute;
+      width: 264px;
+      height: 451px;
+      z-index: 9;
+      padding: 26px 0;
+      background-color: #55585a7a;
+      box-sizing: border-box; //盒模型
+      .menu-warp {
+        .menu-item {
+          height: 50px;
+          line-height: 50px;
+          a {
+            position: relative;
+            display: block;
+            font-size: 16px;
+            color: #ffffff;
+            padding-left: 30px;
+            &:after {
+              position: absolute;
+              right: 30px;
+              top: 17.5px;
+              content: ""; //占位
+              @include bgImg(10px, 15px, "/imgs/icon-arrow.png");
+            }
+          }
+          &:hover {
+            background-color: $colorL;
+          }
+        }
+      }
+    }
+
+    /*复写swiper.css*/
     .swiper-container {
       height: 451px;
+      /*设图片切换箭头样式*/
+      .swiper-button-prev {
+        left: 274px;
+      }
       img {
         width: 100%;
         height: 100%;

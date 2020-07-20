@@ -395,6 +395,7 @@ export default {
               .pro-price {
                 color: $colorA;
               }
+               /*商品内容分割线*/
               &:before {
                 content: "";
                 position: absolute;
