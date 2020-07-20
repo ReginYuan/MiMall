@@ -47,6 +47,7 @@ axios.interceptors.response.use(function(response) {
     }
 });
 
+
 Vue.use(VueAxios, axios);
 Vue.config.productionTip = false
 
