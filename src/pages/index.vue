@@ -7,7 +7,16 @@
           <ul class="menu-warp">
             <li class="menu-item">
               <a href="javascript:;">手机</a>
-              <div class="children"></div>
+              <div class="children">
+                <ul v-for="(item, index) in menuList" v-bind:key="index">
+                  <li v-for="(sub, j) in item" v-bind:key="j">
+                    <a v-bind:href="sub ? '/#/product/' + sub.id : ''">
+                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      {{ sub?sub.name:'小米9' }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="menu-item">
               <a href="javascript:;">笔记本</a>
@@ -46,9 +55,9 @@
         <swiper v-bind:options="swiperOption">
           <!-- 遍历图片 -->
           <swiper-slide v-for="(item, index) in slideList" v-bind:key="index">
-            <a v-bind:href="'/#/product/' + item.id"
-              ><img v-bind:src="item.img"
-            /></a>
+            <a v-bind:href="'/#/product/' + item.id">
+              <img v-bind:src="item.img" />
+            </a>
           </swiper-slide>
           <!-- Optional controls -->
           <div class="swiper-pagination" slot="pagination"></div>
@@ -73,7 +82,7 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    ServiceBar,
+    ServiceBar
   },
   data() {
     return {
@@ -87,7 +96,7 @@ export default {
           swiperShows: true,
           shadow: true,
           shadowOffset: 100,
-          shadowScale: 0.6,
+          shadowScale: 0.6
         },
 
         // 分页器
@@ -96,35 +105,74 @@ export default {
 
         //
         prevButton: ".swiper-button-prev", //后退按钮的css选择器或HTML元素。
-        nextButton: ".swiper-button-next", //前进按钮的css选择器或HTML元素。
+        nextButton: ".swiper-button-next" //前进按钮的css选择器或HTML元素。
       },
       slideList: [
         {
           id: "42",
-          img: "/imgs/slider/slide-1.jpg",
+          img: "/imgs/slider/slide-1.jpg"
         },
         {
           id: "45",
-          img: "/imgs/slider/slide-2.jpg",
+          img: "/imgs/slider/slide-2.jpg"
         },
         {
           id: "46",
-          img: "/imgs/slider/slide-3.jpg",
+          img: "/imgs/slider/slide-3.jpg"
         },
         {
           id: "",
-          img: "/imgs/slider/slide-4.jpg",
+          img: "/imgs/slider/slide-4.jpg"
         },
         {
           id: "",
-          img: "/imgs/slider/slide-5.jpg",
-        },
+          img: "/imgs/slider/slide-5.jpg"
+        }
       ],
-      phoneList: [],
+      // 轮播菜单
+      menuList: [
+        [
+          { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
+          { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
+          { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+        ],
+        [
+          { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
+          { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
+          { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+        ],
+        [
+          { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
+          { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
+          { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+        ],
+        [
+          { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
+          { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
+          { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+        ],
+        [
+          { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
+          { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
+          { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+        ],
+        [
+          { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
+          { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
+          { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+        ]
+      ],
+      phoneList: []
     };
   },
   mounted() {},
-  methods: {},
+  methods: {}
 };
 </script>
 <style lang="scss">
@@ -161,6 +209,41 @@ export default {
           }
           &:hover {
             background-color: $colorL;
+            .children {
+              display: block;
+            }
+          }
+
+          .children {
+            display: none;
+            width: 962px;
+            height: 451px;
+            background-color: $colorG;
+            position: absolute;
+            top: 0;
+            left: 264px;
+            border: 1px solid $colorH;
+            ul {
+              display: flex;
+              justify-content: space-between;
+              height: 75px;
+              li {
+                height: 75px;
+                line-height: 75px;
+                flex: 1;
+                padding-left: 23px;
+              }
+              a {
+                color: $colorB;
+                font-size: 14px;
+              }
+              img {
+                width: 42px;
+                height: 35px;
+                vertical-align: middle;
+                margin-right: 15px;
+              }
+            }
           }
         }
       }
