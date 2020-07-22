@@ -78,7 +78,35 @@
         </a>
       </div>
     </div>
-    <div class="product-box"></div>
+    <!-- 手机商品 -->
+    <div class="product-box">
+      <div class="container">
+        <h2>手机</h2>
+        <div class="wrapper">
+          <div class="banner-left">
+            <a href="/#/product/35">
+              <img src="/imgs/mix-alpha.jpg" alt />
+            </a>
+          </div>
+          <div class="list-box">
+            <div class="list" v-for="(arr,index) in phoneList" v-bind:key="index">
+              <div class="item" v-for="(item,j) in arr" v-bind:key="j">
+                <span v-bind:class="{'new-pro':j%2==0}">新品</span>
+                <div class="item-img">
+                  <img v-bind:src="item.mainImage" alt />
+                </div>
+
+                <div class="item-info">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.subtitle}}</p>
+                  <p class="price">{{item.price}}元</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 服务模块 -->
     <service-bar></service-bar>
   </div>
@@ -201,8 +229,26 @@ export default {
       phoneList: []
     };
   },
-  mounted() {},
-  methods: {}
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      this.axios
+        .get("/products", {
+          params: {
+            categoryId: 100012,
+            pageSize: 14
+          }
+        })
+        .then(res => {
+          // 把数据从第六条分割到14条
+          res.list = res.list.slice(6, 14);
+          // 把数据再次分割为两个数组
+          this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
+        });
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -309,6 +355,92 @@ export default {
   /*banner图样式*/
   .banner {
     margin-bottom: 50px;
+  }
+
+  /*手机商品*/
+
+  .product-box {
+    background-color: $colorG;
+    padding: 30px 0 50px;
+    h2 {
+      font-size: $fontF;
+      height: 21px;
+      line-height: 21px;
+      color: $colorB;
+      margin-bottom: 20px;
+    }
+
+    .wrapper {
+      display: flex;
+      .banner-left {
+        margin-right: 16px;
+        img {
+          width: 224px;
+          height: 619px;
+        }
+      }
+      .list-box {
+        .list {
+          @include flex();
+          width: 986px;
+          margin-bottom: 14px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .item {
+            width: 236px;
+            height: 302px;
+            background-color: $colorG;
+            text-align: center;
+            span {
+              display: inline-block;
+              width: 67px;
+              height: 24px;
+              font-size: 14px;
+              line-height: 24px;
+              &.new-pro {
+                background-color: #7ecf68;
+              }
+              &.kill-pro {
+                background-color: #e8262e;
+              }
+            }
+            .item-img {
+              img {
+                width: 100%;
+                height: 195px;
+              }
+            }
+
+            .item-info {
+              h3 {
+                font-size: $fontJ;
+                color: $colorB;
+                line-height: $fontJ;
+                font-weight: bold;
+              }
+              p {
+                color: $colorD;
+                line-height: 13px;
+                margin: 6px auto 13px;
+              }
+              .price {
+                color: #f20a0a;
+                font-size: $fontJ;
+                font-weight: bold;
+                cursor: pointer;
+                &:after {
+                  content: "";
+                  @include bgImg(22px, 22px, "/imgs/icon-cart-hover.png");
+                  margin-left: 5px;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>
