@@ -65,8 +65,18 @@
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
       </div>
-      <div class="ads-box"></div>
-      <div class="banner"></div>
+      <!-- 广告位 -->
+      <div class="ads-box">
+        <a v-bind:href="'/#/product/'+item.id" v-for="(item,index) in adsList" v-bind:key="index">
+          <img v-bind:src="item.img" alt />
+        </a>
+      </div>
+      <!-- banner图 -->
+      <div class="banner">
+        <a href="/#/product/30">
+          <img src="/imgs/banner-1.png" alt />
+        </a>
+      </div>
     </div>
     <div class="product-box"></div>
     <!-- 服务模块 -->
@@ -107,6 +117,7 @@ export default {
         prevButton: ".swiper-button-prev", //后退按钮的css选择器或HTML元素。
         nextButton: ".swiper-button-next" //前进按钮的css选择器或HTML元素。
       },
+      // 轮播图照片
       slideList: [
         {
           id: "42",
@@ -168,6 +179,25 @@ export default {
           { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
         ]
       ],
+
+      adsList: [
+        {
+          id: 33,
+          img: "/imgs/ads/ads-1.png"
+        },
+        {
+          id: 48,
+          img: "/imgs/ads/ads-2.jpg"
+        },
+        {
+          id: 45,
+          img: "/imgs/ads/ads-3.png"
+        },
+        {
+          id: 47,
+          img: "/imgs/ads/ads-4.jpg"
+        }
+      ],
       phoneList: []
     };
   },
@@ -178,6 +208,7 @@ export default {
 <style lang="scss">
 @import "./../assets/scss/config.scss";
 @import "./../assets/scss/mixin.scss";
+@import "./../assets/scss/base.scss";
 .index {
   .swiper-box {
     /*定义菜单格式 */
@@ -190,6 +221,7 @@ export default {
       background-color: #55585a7a;
       box-sizing: border-box; //盒模型
       .menu-warp {
+        /*轮播菜单*/
         .menu-item {
           height: 50px;
           line-height: 50px;
@@ -213,7 +245,7 @@ export default {
               display: block;
             }
           }
-
+          /*轮播菜单实现 */
           .children {
             display: none;
             width: 962px;
@@ -261,6 +293,22 @@ export default {
         height: 100%;
       }
     }
+  }
+
+  /*广告位样式*/
+  .ads-box {
+    @include flex();
+    margin-top: 14px;
+    margin-bottom: 31px;
+    a {
+      width: 296px;
+      height: 167px;
+    }
+  }
+
+  /*banner图样式*/
+  .banner {
+    margin-bottom: 50px;
   }
 }
 </style>
