@@ -2,17 +2,44 @@
 
 @mixin flex($hov:space-between, $col:center) {
     display: flex;
-    // 两端对齐
+    /* 两端对齐*/
     justify-content: $hov;
-    // 元素位于容器的中心。
+    /*元素位于容器的中心。*/
     align-items: $col;
 }
+
+
+/*图片设置*/
 
 @mixin bgImg($w:0, $h:0, $img:'', $size:contain) {
     display: inline-block;
     width: $w;
     height: $h;
     background: url($img) no-repeat center;
-    // 让图片充满所在容器的宽和高
+    /*让图片充满所在容器的宽和高*/
     background-size: $size;
+}
+
+
+/*布局定位设置*/
+
+@mixin position($pos:absolute, $top:0, $left:0, $w:100%, $h:100%) {
+    position: $pos;
+    top: $top;
+    left: $left;
+    width: $w;
+    height: $h;
+}
+
+
+/*弹窗图片*/
+
+@mixin positionImg($pos:absolute, $top:0, $right:0, $w:0, $h:0, $img:'') {
+    position: $pos;
+    top: $top;
+    right: $right;
+    width: $w;
+    height: $h;
+    background: url($img) no-repeat center;
+    background-size: contain;
 }

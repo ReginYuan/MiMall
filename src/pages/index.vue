@@ -109,17 +109,24 @@
     </div>
     <!-- 服务模块 -->
     <service-bar></service-bar>
+    <modal title="提示" sureText="购物车" btnType="1" modalType="middle" v-bind:showModal="showModal">
+      <template v-slot:body>
+        <p>商品添加成功！</p>
+      </template>
+    </modal>
   </div>
-</template>
+</template>s
 <script>
 import ServiceBar from "./../components/ServiceBar";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import Modal from "@/components/Modal";
 import "swiper/css/swiper.css";
 export default {
   name: "index",
   components: {
     swiper,
     swiperSlide,
+    Modal,
     ServiceBar
   },
   data() {
@@ -226,7 +233,8 @@ export default {
           img: "/imgs/ads/ads-4.jpg"
         }
       ],
-      phoneList: []
+      phoneList: [],
+      showModal:true
     };
   },
   mounted() {

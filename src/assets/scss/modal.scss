@@ -1,0 +1,43 @@
+.modal {
+    z-index: 10;
+    @include position(fixed);
+    .mask {
+        /*设置遮罩层*/
+        @include position(fixed);
+        background-color: $colorI;
+        /*透明度*/
+        opacity: 0.9;
+    }
+    /*设置弹窗内容格式*/
+    .modal-dialog {
+        @include position(absolute, 50%, 50%, 660px, auto);
+        background-color: $colorG;
+        transform: translate(-50%, -50%);
+        /*弹窗头部设置*/
+        .modal-header {
+            height: 60px;
+            background-color: $colorJ;
+            padding: 0 25px;
+            line-height: 60px;
+            font-size: $fontI;
+            .icon-close {
+                @include positionImg(absolute, 23px, 25px, 14px, 14px, '/imgs/icon-close.png');
+                transition: transform .3s;
+                &:hover {
+                    /*放大图片*/
+                    transform: scale(1.5);
+                }
+            }
+        }
+        .modal-body {
+            padding: 42px 40px 54px;
+            font-size: 14px;
+        }
+        .modal-footer {
+            height: 82px;
+            line-height: 82px;
+            text-align: center;
+            background-color: $colorJ;
+        }
+    }
+}
