@@ -99,7 +99,7 @@
                 <div class="item-info">
                   <h3>{{item.name}}</h3>
                   <p>{{item.subtitle}}</p>
-                  <p class="price">{{item.price}}元</p>
+                  <p class="price" @click="addCart(item.id)">{{item.price}}元</p>
                 </div>
               </div>
             </div>
@@ -109,7 +109,15 @@
     </div>
     <!-- 服务模块 -->
     <service-bar></service-bar>
-    <modal title="提示" sureText="购物车" btnType="1" modalType="middle" v-bind:showModal="showModal">
+    <modal
+      title="提示"
+      sureText="购物车"
+      btnType="1"
+      modalType="middle"
+      v-bind:showModal="showModal"
+      v-on:submit="goToCart"
+      v-on:cancel="showModal=false"
+    >
       <template v-slot:body>
         <p>商品添加成功！</p>
       </template>
@@ -127,7 +135,7 @@ export default {
     swiper,
     swiperSlide,
     Modal,
-    ServiceBar
+    ServiceBar,
   },
   data() {
     return {
@@ -141,7 +149,7 @@ export default {
           swiperShows: true,
           shadow: true,
           shadowOffset: 100,
-          shadowScale: 0.6
+          shadowScale: 0.6,
         },
 
         // 分页器
@@ -150,30 +158,30 @@ export default {
 
         //
         prevButton: ".swiper-button-prev", //后退按钮的css选择器或HTML元素。
-        nextButton: ".swiper-button-next" //前进按钮的css选择器或HTML元素。
+        nextButton: ".swiper-button-next", //前进按钮的css选择器或HTML元素。
       },
       // 轮播图照片
       slideList: [
         {
           id: "42",
-          img: "/imgs/slider/slide-1.jpg"
+          img: "/imgs/slider/slide-1.jpg",
         },
         {
           id: "45",
-          img: "/imgs/slider/slide-2.jpg"
+          img: "/imgs/slider/slide-2.jpg",
         },
         {
           id: "46",
-          img: "/imgs/slider/slide-3.jpg"
+          img: "/imgs/slider/slide-3.jpg",
         },
         {
           id: "",
-          img: "/imgs/slider/slide-4.jpg"
+          img: "/imgs/slider/slide-4.jpg",
         },
         {
           id: "",
-          img: "/imgs/slider/slide-5.jpg"
-        }
+          img: "/imgs/slider/slide-5.jpg",
+        },
       ],
       // 轮播菜单
       menuList: [
@@ -181,60 +189,60 @@ export default {
           { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
           { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
           { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
-          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
         ],
         [
           { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
           { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
           { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
-          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
         ],
         [
           { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
           { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
           { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
-          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
         ],
         [
           { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
           { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
           { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
-          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
         ],
         [
           { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
           { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
           { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
-          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
         ],
         [
           { id: 30, img: "/imgs/item-box-1.png", name: "小米CC9" },
           { id: 31, img: "/imgs/item-box-2.png", name: "小米8青春版" },
           { id: 32, img: "/imgs/item-box-3.jpg", name: "Redmi K20 Pro" },
-          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" }
-        ]
+          { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
+        ],
       ],
 
       adsList: [
         {
           id: 33,
-          img: "/imgs/ads/ads-1.png"
+          img: "/imgs/ads/ads-1.png",
         },
         {
           id: 48,
-          img: "/imgs/ads/ads-2.jpg"
+          img: "/imgs/ads/ads-2.jpg",
         },
         {
           id: 45,
-          img: "/imgs/ads/ads-3.png"
+          img: "/imgs/ads/ads-3.png",
         },
         {
           id: 47,
-          img: "/imgs/ads/ads-4.jpg"
-        }
+          img: "/imgs/ads/ads-4.jpg",
+        },
       ],
       phoneList: [],
-      showModal:true
+      showModal: false,
     };
   },
   mounted() {
@@ -246,17 +254,35 @@ export default {
         .get("/products", {
           params: {
             categoryId: 100012,
-            pageSize: 14
-          }
+            pageSize: 14,
+          },
         })
-        .then(res => {
+        .then((res) => {
           // 把数据从第六条分割到14条
           res.list = res.list.slice(6, 14);
           // 把数据再次分割为两个数组
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
         });
-    }
-  }
+    },
+    addCart(id) {
+      this.showModal = true;
+      return;
+      // eslint-disable-next-line no-unreachable
+      this.axios
+        .post("/carts", {
+          productId: id,
+          selected: true,
+        })
+        .then(() => {})
+        .catch(() => {
+          this.showModal = true;
+        });
+    },
+
+    goToCart() {
+      this.$router.push("/cart");
+    },
+  },
 };
 </script>
 <style lang="scss">

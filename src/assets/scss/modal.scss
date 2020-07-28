@@ -1,5 +1,6 @@
 .modal {
     z-index: 10;
+    //动画过渡
     @include position(fixed);
     .mask {
         /*设置遮罩层*/
@@ -7,6 +8,19 @@
         background-color: $colorI;
         /*透明度*/
         opacity: 0.9;
+    }
+    /* 可以设置不同的进入和离开动画 */
+    /* 设置持续时间和动画函数 */
+    &.slide-enter-active {
+        transition: all .3s ease;
+    }
+    &.slide-leave-active {
+        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    &.slide-enter,
+    &.slide-leave-to {
+        transform: translateX(10px);
+        opacity: 0;
     }
     /*设置弹窗内容格式*/
     .modal-dialog {
