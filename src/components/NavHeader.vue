@@ -34,7 +34,7 @@
                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                   <a v-bind:href="'/#/product/'+item.id" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.mainImage" :alt="item.subtitle" />
+                      <img v-lazy="item.mainImage" :alt="item.subtitle" />
                     </div>
                     <div class="pro-name">{{item.name}}</div>
                     <div class="pro-price">{{item.price|currency}}</div>
@@ -51,7 +51,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png'"
                         alt
                       />
                     </div>
@@ -64,7 +64,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png'"
                         alt
                       />
                     </div>
@@ -77,7 +77,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png'"
                         alt
                       />
                     </div>
@@ -90,7 +90,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png'"
                         alt
                       />
                     </div>
@@ -103,7 +103,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png'"
                         alt
                       />
                     </div>
@@ -116,7 +116,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6972453160119/428_428_9DF1559494B296D8A911EA0BA6111B0BCAFAB6CCE563F3E0mp.png'"
                         alt
                       />
                     </div>
@@ -135,7 +135,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png'"
                         alt
                       />
                     </div>
@@ -148,7 +148,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png'"
                         alt
                       />
                     </div>
@@ -161,7 +161,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png'"
                         alt
                       />
                     </div>
@@ -174,7 +174,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png'"
                         alt
                       />
                     </div>
@@ -187,7 +187,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png'"
                         alt
                       />
                     </div>
@@ -200,7 +200,7 @@
                   <a href target="_blank">
                     <div class="pro-img">
                       <img
-                        src="https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png"
+                        v-lazy="'https://res.vmallres.com/pimages//product/6901443363834/428_428_F5914787EADD22E44AE873EB26A9DEE719BA467ACED12261mp.png'"
                         alt
                       />
                     </div>
@@ -229,14 +229,14 @@ export default {
   data() {
     return {
       username: "jack",
-      phoneList: []
+      phoneList: [],
     };
   },
   filters: {
     currency(val) {
       if (!val) return "0.00";
       return "￥" + val.toFixed(2) + "元";
-    }
+    },
   },
 
   mounted() {
@@ -253,18 +253,18 @@ export default {
         .get("/products", {
           params: {
             categoryId: "100012",
-            pageSize: 6
-          }
+            pageSize: 6,
+          },
         })
-        .then(res => {
+        .then((res) => {
           this.phoneList = res.list;
         });
     },
     // 跳转到购物车页面
     goToCart() {
       this.$router.push("/cart");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -395,7 +395,7 @@ export default {
               .pro-price {
                 color: $colorA;
               }
-               /*商品内容分割线*/
+              /*商品内容分割线*/
               &:before {
                 content: "";
                 position: absolute;

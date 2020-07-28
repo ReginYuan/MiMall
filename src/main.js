@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VueLazyload from 'vue-lazyload';
 import store from './store';
 // import env from './env';
 
@@ -48,8 +49,13 @@ axios.interceptors.response.use(function(response) {
 });
 
 
+// axios全局配置
 Vue.use(VueAxios, axios);
-Vue.config.productionTip = false
+// 图片懒加载
+Vue.use(VueLazyload, {
+    loading: '/imgs/loading-svg/loading-bars.svg'
+});
+Vue.config.productionTip = false;
 
 new Vue({
     store,

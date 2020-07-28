@@ -11,7 +11,7 @@
                 <ul v-for="(item, index) in menuList" v-bind:key="index">
                   <li v-for="(sub, j) in item" v-bind:key="j">
                     <a v-bind:href="sub ? '/#/product/' + sub.id : ''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{ sub?sub.name:'小米9' }}
                     </a>
                   </li>
@@ -68,13 +68,13 @@
       <!-- 广告位 -->
       <div class="ads-box">
         <a v-bind:href="'/#/product/'+item.id" v-for="(item,index) in adsList" v-bind:key="index">
-          <img v-bind:src="item.img" alt />
+          <img v-lazy="item.img" alt />
         </a>
       </div>
       <!-- banner图 -->
       <div class="banner">
         <a href="/#/product/30">
-          <img src="/imgs/banner-1.png" alt />
+          <img v-lazy="'/imgs/banner-1.png'" alt />
         </a>
       </div>
     </div>
@@ -85,7 +85,7 @@
         <div class="wrapper">
           <div class="banner-left">
             <a href="/#/product/35">
-              <img src="/imgs/mix-alpha.jpg" alt />
+              <img v-lazy="'/imgs/mix-alpha.jpg'" alt />
             </a>
           </div>
           <div class="list-box">
@@ -93,7 +93,7 @@
               <div class="item" v-for="(item,j) in arr" v-bind:key="j">
                 <span v-bind:class="{'new-pro':j%2==0}">新品</span>
                 <div class="item-img">
-                  <img v-bind:src="item.mainImage" alt />
+                  <img v-lazy="item.mainImage" alt />
                 </div>
 
                 <div class="item-info">
@@ -222,7 +222,7 @@ export default {
           { id: 33, img: "/imgs/item-box-4.jpg", name: "移动5G专区" },
         ],
       ],
-
+      // 广告位
       adsList: [
         {
           id: 33,
