@@ -37,15 +37,21 @@ axios.defaults.timeout = 8000;
 // axios.defaults.baseURL = env.baseURL;
 // 接口错误拦截
 axios.interceptors.response.use(function (response) {
+    // 获取数据
     let res = response.data;
+    // 获取hash路由路径
+    let path = location.hash;
     // 状态码0是成功
     if (res.status == 0) {
         return res.data;
         // 状态码10是未登录
     } else if (res.status == 10) {
-        window.location.href = '/#/login';
-    } else {
+        // 如果页面路径不是在首主页，则跳转到登录页面
+        if (path != '#/index') {
+            window.location.href = '/#/login';
+        }
 
+    } else {
         alert(res.msg);
         return Promise.reject(res);
     }

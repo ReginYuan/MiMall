@@ -242,6 +242,7 @@ export default {
         },
       ],
       phoneList: [],
+      // 弹窗是否显示
       showModal: false,
     };
   },
@@ -249,6 +250,7 @@ export default {
     this.init();
   },
   methods: {
+    // 获取商品信息
     init() {
       this.axios
         .get("/products", {
@@ -279,6 +281,7 @@ export default {
         });
     },
 
+    // 跳转到购物车
     goToCart() {
       this.$router.push("/cart");
     },

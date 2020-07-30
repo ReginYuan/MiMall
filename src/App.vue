@@ -12,11 +12,28 @@ export default {
   },
   data() {
     return {
-      res: {}
+      res: {},
     };
   },
 
-  mounted() {}
+  mounted() {
+    this.getUser();
+    this.getCartCount();
+  },
+  methods: {
+    // 获取用户信息
+    getUser() {
+      this.axios.get("/user").then(() => {
+        // to-do保存到vuex里面
+      });
+    },
+    // 获取购物车的商品总数
+    getCartCount() {
+      this.axios.get("/cart/products/sum").then(() => {
+        //to-do 保存到vuex里面
+      });
+    },
+  },
 };
 </script>
 >
