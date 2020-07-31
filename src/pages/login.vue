@@ -1,3 +1,6 @@
+/**
+* 登录页面
+ */
 <template>
   <div class="login">
     <div class="container">
@@ -59,6 +62,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "login",
   data() {
@@ -70,28 +74,31 @@ export default {
   },
 
   methods: {
-
     // 登录方法
     login() {
       // 将username和password解构出来
       let { username, password } = this;
       this.axios
-        .post("user/login", {
+        .post("/user/login", {
           username,
           password,
         })
         .then((res) => {
           // 将用户数据保存到cookie中
           this.$cookie.set("userId", res.id, { expires: "1M" });
+          // 派发一个actions,将username发送到actions
+          // this.$store.dispatch("saveUserName", res.username);
+          this.saveUserName(res.username);
           // to-do保存用户名
           this.$router.push("/index");
         });
     },
-
+    // 将 `saveUserName` 映射为 `this.$store.dispatch('saveUserName')`
+    ...mapActions(["saveUserName"]),
     // 注册方法
     register() {
       this.axios
-        .post("user/register", {
+        .post("/user/register", {
           username: "reginyuan",
           password: "a54185418",
           email: "reginyuan@gmailcom",

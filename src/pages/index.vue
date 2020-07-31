@@ -1,3 +1,6 @@
+/** 
+*主页面
+*/
 <template>
   <div class="index">
     <div class="container">

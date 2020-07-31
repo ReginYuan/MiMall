@@ -1,3 +1,7 @@
+
+/**
+*弹窗组件
+*/
 <template>
   <!-- transition name="slide"  css过渡动画组件 -->
   <transition mode="out-in" name="slide" appear>

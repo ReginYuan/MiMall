@@ -1,3 +1,8 @@
+/**
+* 首页头部组件
+ *
+ */
+
 <template>
   <div class="header">
     <!--导航顶部菜单-->
@@ -14,7 +19,8 @@
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart">
-            <span class="icon-cart"></span>购物车
+            <span class="icon-cart"></span>
+            购物车{{cartCount}}
           </a>
         </div>
       </div>
@@ -224,13 +230,30 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "nav-header",
   data() {
     return {
-      username: "jack",
       phoneList: [],
     };
+  },
+  // 计算属性
+  computed: {
+    /*
+  // 解决数据延时 将获取username定义成计算函数
+    username() {
+      // 从数据源获取用户名
+      return this.$store.state.username;
+    },
+    // 解决数据延时 将获取cartCount定义成计算函数
+    cartCount() {
+      // 从数据源获取商品总数
+      return this.$store.state.cartCount;
+    },
+    */
+    //  作用与上文等同
+    ...mapState(["username", "cartCount"]),
   },
   filters: {
     currency(val) {
@@ -292,7 +315,7 @@ export default {
         background-color: #d81e06;
         text-align: center;
         color: #ffffff;
-        margin-right:0;
+        margin-right: 0;
         .icon-cart {
           @include bgImg(16px, 12px, "/imgs/icon-cart-checked.png");
           margin-right: 6px;

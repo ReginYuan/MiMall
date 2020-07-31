@@ -1,3 +1,8 @@
+/**
+* 首页底部组件
+ *
+ */
+
 <template>
   <div class="footer">
     <div class="footer-logo">
@@ -6,25 +11,13 @@
     </div>
     <div class="footer-container">
       <div class="footer-link">
-        <a target="_blank" href="https://www.vmall.com/help/faq-4355.html"
-          >购物相关</a
-        >
+        <a target="_blank" href="https://www.vmall.com/help/faq-4355.html">购物相关</a>
         <span>|</span>
-        <a target="_blank" href="https://www.vmall.com/help/faq-833.html"
-          >保修与退换货</a
-        >
+        <a target="_blank" href="https://www.vmall.com/help/faq-833.html">保修与退换货</a>
         <span>|</span>
-        <a
-          target="_blank"
-          href="https://consumer.huawei.com/cn/support/discriminate/"
-          >特色服务</a
-        >
+        <a target="_blank" href="https://consumer.huawei.com/cn/support/discriminate/">特色服务</a>
         <span>|</span>
-        <a
-          target="_blank"
-          href="https://www.huawei.com/cn/corporate-information"
-          >关于我们</a
-        >
+        <a target="_blank" href="https://www.huawei.com/cn/corporate-information">关于我们</a>
         <span>|</span>
         <a target="_blank" href="https://www.huawei.com/cn/">友情链接</a>
       </div>

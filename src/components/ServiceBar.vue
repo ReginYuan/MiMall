@@ -1,12 +1,24 @@
-// 底部服务模块
+/**
+*底部服务模块组件
+ */
+
+
 <template>
   <div class="service">
     <div class="container">
       <ul>
-        <li><span class="icon-setting"></span>百强企业 品质保证</li>
-        <li><span class="icon-7day"></span>7天退货 15天换货</li>
-        <li><span class="icon-48meny"></span> 48元起免运费</li>
-        <li><span class="icon-post"></span>2000家服务店 全国联保</li>
+        <li>
+          <span class="icon-setting"></span>百强企业 品质保证
+        </li>
+        <li>
+          <span class="icon-7day"></span>7天退货 15天换货
+        </li>
+        <li>
+          <span class="icon-48meny"></span> 48元起免运费
+        </li>
+        <li>
+          <span class="icon-post"></span>2000家服务店 全国联保
+        </li>
       </ul>
     </div>
   </div>

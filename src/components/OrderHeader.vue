@@ -1,8 +1,9 @@
-// 订单的头部组件
+/** 
+*订单头部组件
+*/
+
 <template>
-  <div>
-    order-header
-  </div>
+  <div>order-header</div>
 </template>
 
 <script>
