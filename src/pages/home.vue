@@ -1,3 +1,7 @@
+/**
+*主页面
+*/
+
 <template>
   <div>
     <nav-header></nav-header>

@@ -1,5 +1,5 @@
 /** 
-*主页面
+*主页内容页面
 */
 <template>
   <div class="index">
