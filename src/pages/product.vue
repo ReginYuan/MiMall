@@ -68,11 +68,11 @@
           后置960帕电影超慢动作视频，将眨眼间的美妙展现得淋漓尽致！
           <br />更能AI 精准分析视频内容，15个场景智能匹配背景音效。
         </p>
-        <div class="video-bg" @click="showSlide='slidewDown'"></div>
-        <div class="video-box" v-show="showSlide">
-          <div class="overlay"></div>
-          <div class="video" v-bind="showSlide">
-            <span class="icon-close" @click="closeVideo"></span>
+        <div class="video-bg" @click="showSlide=true"></div>
+        <div class="video-box">
+          <div class="overlay" v-if="showSlide"></div>
+          <div class="video" v-bind:class="{'slide':showSlide}">
+            <span class="icon-close" @click="showSlide=false"></span>
             <video src="/imgs/product/video.mp4" muted autoplay controls="true"></video>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default {
   name: "product",
   data() {
     return {
-      showSlide: "", //控制动画
+      showSlide: false, //控制动画
       product: {}, //商品信息
       swiperOption: {
         // autoplay: true, //自动播放
@@ -236,13 +236,21 @@ export default {
         }
         .video {
           position: fixed;
-          top: 50%;
+          top: -50%;
           left: 50%;
           transform: translate(-50%, -50%);
           z-index: 12;
           width: 1000px;
           height: 536px;
-          opacity: 1;
+          opacity: 0;
+          transition: all 0.6s;
+
+          /*动画效果 */
+          &.slide {
+            top: 50%;
+            opacity: 1;
+          }
+
           .icon-close {
             position: absolute;
             top: 20px;
