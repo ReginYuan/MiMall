@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar" :class="{'is_false':isFixed}">
     <div class="container">
-      <div class="pro-title">小米10</div>
+      <div class="pro-title">{{title}}</div>
       <div class="pro-param">
         <a href="javascript:;">概述</a>
         <span>|</span>
@@ -17,6 +17,9 @@
 <script>
 export default {
   name: "product-param",
+  props: {
+    title: String,
+  },
   data() {
     return {
       isFixed: false,
