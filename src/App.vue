@@ -27,7 +27,7 @@ export default {
   methods: {
     // 获取用户信息
     getUser() {
-      this.axios.get("/user").then((res) => {
+      this.axios.get("/user").then((res = {}) => {
         // to-do保存到vuex里面
         // 派发一个actions,将username发送到actions
         // this.$store.dispatch("saveUserName", res.username);
@@ -37,7 +37,7 @@ export default {
 
     // 获取购物车的商品总数
     getCartCount() {
-      this.axios.get("/carts/products/sum").then((res) => {
+      this.axios.get("/carts/products/sum").then((res = 0) => {
         //to-do 保存到vuex里面
         // 派发一个actions,将cartCount发送到actions
         // this.$store.dispatch("cartCount", res);

@@ -6,7 +6,7 @@
   <div class="product">
     <product-param v-bind:title="product.name">
       <template v-slot:buy>
-        <button class="btn">立即购买</button>
+        <button class="btn" @click="buy">立即购买</button>
       </template>
     </product-param>
 
@@ -68,11 +68,11 @@
           后置960帕电影超慢动作视频，将眨眼间的美妙展现得淋漓尽致！
           <br />更能AI 精准分析视频内容，15个场景智能匹配背景音效。
         </p>
-        <div class="video-bg" @click="showSlide=true"></div>
-        <div class="video-box">
-          <div class="overlay" v-if="showSlide"></div>
-          <div class="video" v-bind:class="{'slide':showSlide}">
-            <span class="icon-close" @click="showSlide=false"></span>
+        <div class="video-bg" @click="showSlide='slideDown'"></div>
+        <div class="video-box" v-show="showSlide">
+          <div class="overlay"></div>
+          <div class="video" v-bind:class="showSlide">
+            <span class="icon-close" @click="closeVideo"></span>
             <video src="/imgs/product/video.mp4" muted autoplay controls="true"></video>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default {
   name: "product",
   data() {
     return {
-      showSlide: false, //控制动画
+      showSlide: "", //控制动画
       product: {}, //商品信息
       swiperOption: {
         // autoplay: true, //自动播放
@@ -116,6 +116,7 @@ export default {
     this.getProductInfo();
   },
   methods: {
+    // 获取商品详情
     getProductInfo() {
       // 获取商品id
       // eslint-disable-next-line no-unused-vars
@@ -124,10 +125,12 @@ export default {
         this.product = res;
       });
     },
+    //跳转到商品购买详情页
     buy() {
       let id = this.$route.params.id;
       this.$router.push(`/detail/${id}`);
     },
+    //关闭视频窗口
     closeVideo() {
       this.showSlide = "slideUp";
       setTimeout(() => {
@@ -234,6 +237,30 @@ export default {
           opacity: 0.4;
           z-index: 10;
         }
+
+        /*设置下拉动画效果 */
+        @keyframes slideDown {
+          from {
+            top: -50%;
+            opacity: 0;
+          }
+          to {
+            top: 50%;
+            opacity: 1;
+          }
+        }
+
+        /*设置上拉动画效果 */
+        @keyframes slideUp {
+          from {
+            top: 50%;
+            opacity: 1;
+          }
+          to {
+            top: -50%;
+            opacity: 0;
+          }
+        }
         .video {
           position: fixed;
           top: -50%;
@@ -242,15 +269,17 @@ export default {
           z-index: 12;
           width: 1000px;
           height: 536px;
-          opacity: 0;
+          opacity: 1;
           transition: all 0.6s;
-
-          /*动画效果 */
-          &.slide {
+          &.slideDown {
+            /*指定动画*/
+            animation: slideDown 0.6s linear;
             top: 50%;
-            opacity: 1;
           }
-
+          &.slideUp {
+            /*指定动画*/
+            animation: slideUp 0.6s linear;
+          }
           .icon-close {
             position: absolute;
             top: 20px;
