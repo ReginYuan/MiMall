@@ -36,7 +36,7 @@ axios.defaults.timeout = 8000;
 // 根据环境变量获取不同的请求地址
 // axios.defaults.baseURL = env.baseURL;
 // 接口错误拦截
-axios.interceptors.response.use(function (response) {
+axios.interceptors.response.use(function(response) {
     // 获取数据
     let res = response.data;
     // 获取hash路由路径
@@ -50,7 +50,7 @@ axios.interceptors.response.use(function (response) {
         if (path != '#/index') {
             window.location.href = '/#/login';
         }
-
+        return Promise.reject(res);
     } else {
         alert(res.msg);
         return Promise.reject(res);

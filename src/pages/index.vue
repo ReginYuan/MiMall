@@ -270,15 +270,16 @@ export default {
         });
     },
     addCart(id) {
-      this.showModal = true;
-      return;
       // eslint-disable-next-line no-unreachable
       this.axios
         .post("/carts", {
           productId: id,
           selected: true,
         })
-        .then(() => {})
+        .then((res) => {
+          this.showModal = true;
+          this.$store.dispatch("saveCartCount", res.cartTotalQuantity);
+        })
         .catch(() => {
           this.showModal = true;
         });
