@@ -330,31 +330,6 @@ export default {
       position: relative;
       height: 112px;
       @include flex();
-      /*logo样式设置*/
-      .header-logo {
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        background-color: #d81e06;
-        a {
-          display: inline-block;
-          width: 110px;
-          height: 55px;
-          &:before {
-            content: "";
-            @include bgImg(55px, 55px, "/imgs/zj-logo.png", 55px);
-            transition: margin 0.2s;
-          }
-          &:after {
-            content: "";
-            @include bgImg(55px, 55px, "/imgs/mi-home.png", 55px);
-          }
-          &:hover:before {
-            margin-left: -55px;
-            transition: margin 0.2s;
-          }
-        }
-      }
 
       /*菜单样式*/
       .header-menu {

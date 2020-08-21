@@ -245,6 +245,12 @@ export default {
         }
       }
 
+      .item-version {
+        .checked {
+          border-color: $colorL;
+        }
+      }
+
       .item-total {
         height: 108px;
         background: #fafafa;
