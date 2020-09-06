@@ -231,7 +231,11 @@ export default {
 
     mounted() {
         this.getProductList();
-        this.getCartCount();
+        // 接收并确认是login登录页面跳转到主页面并获取商品总数量
+        let params = this.$route.params;
+        if (params && params.from == "login") {
+            this.getCartCount();
+        }
     },
     methods: {
         // 跳转到登录页面
@@ -265,7 +269,7 @@ export default {
             this.axios.post("/user/logout").then(() => {
                 this.$message.success("退出成功");
                 // 设置数据清空  cookie过期
-                this.$cookie.set("userId", {
+                this.$cookie.set("userId", "", {
                     expires: "-1",
                 });
                 this.$store.dispatch("saveUserName", "");

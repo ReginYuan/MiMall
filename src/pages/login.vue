@@ -92,13 +92,18 @@ export default {
                 .then((res) => {
                     // 将用户数据保存到cookie中
                     this.$cookie.set("userId", res.id, {
-                        expires: "1M",
+                        expires: "Session",
                     });
                     // 派发一个actions,将username发送到actions
                     // this.$store.dispatch("saveUserName", res.username);
                     this.saveUserName(res.username);
-                    // to-do保存用户名
-                    this.$router.push("/index");
+                    // to-do保存用户名  跳转到主页面并携带login信息
+                    this.$router.push({
+                        name: "index",
+                        params: {
+                            from: "login",
+                        },
+                    });
                 });
         },
         // 将 `saveUserName` 映射为 `this.$store.dispatch('saveUserName')`
